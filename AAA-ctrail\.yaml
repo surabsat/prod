@@ -1,0 +1,18 @@
+Parameters:
+  TrailName:
+    Type: String
+    Default: "CFN-test"
+  BucketName:
+    Type: String
+    Default: newdemolevel
+
+Resources:
+  Trail:
+    Type: AWS::CloudTrail::Trail
+    Properties:
+      S3BucketName: !Ref BucketName
+      IsLogging: true
+      TrailName: !Ref TrailName
+      EnableLogFileValidation: true
+      IncludeGlobalServiceEvents: true
+      IsMultiRegionTrail: true
